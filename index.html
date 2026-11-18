@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OmniFile Studio: compress, convert and edit files in one place</title>
+  <meta name="description" content="Ten browser-based tools for images, PDFs, Word files, audio and archives. Compress, convert, merge, split, OCR and more. No install, no sign-up." />
+  <meta property="og:title" content="OmniFile Studio" />
+  <meta property="og:description" content="Compress, convert and edit files in one place. Ten tools, no install, no sign-up." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://omnifile.bankole.xyz/" />
+  <link rel="canonical" href="https://omnifile.bankole.xyz/" />
+  <meta name="theme-color" content="#F4F5F9" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%234F46E5'/%3E%3Cpath d='M16 7l8 4.5v9L16 25l-8-4.5v-9z' fill='none' stroke='white' stroke-width='2' stroke-linejoin='round'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./dist/styles.css" />
+  <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js" defer></script>
+  <script src="./src/main.js" defer></script>
+</head>
+<body id="top">
+
+  <!-- Nav -->
+  <header class="sticky top-0 z-40 border-b border-ink/10 bg-paper/85 backdrop-blur">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-8">
+      <a href="#top" class="flex min-w-0 items-center gap-2.5 font-display text-lg font-bold tracking-tight">
+        <span class="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-brand text-white"><i data-lucide="boxes" class="h-5 w-5"></i></span>
+        <span class="truncate">OmniFile Studio</span>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav aria-label="Primary" class="hidden items-center gap-8 text-sm font-medium text-ink-soft md:flex">
+        <a href="#tools" class="transition-colors hover:text-ink">Tools</a>
+        <a href="#how" class="transition-colors hover:text-ink">How it works</a>
+        <a href="#vault" class="transition-colors hover:text-ink">Vault</a>
+        <a href="#faq" class="transition-colors hover:text-ink">FAQ</a>
+      </nav>
+
+      <div class="flex items-center gap-2">
+        <a data-app href="https://omnifile.bankole.xyz" target="_blank" rel="noopener noreferrer" class="hidden md:inline-flex shrink-0 rounded-full bg-ink px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-brand">Open the app</a>
+        
+        <!-- Mobile menu toggle button -->
+        <button
+          id="mobile-menu-btn"
+          type="button"
+          aria-expanded="false"
+          aria-controls="mobile-nav"
+          aria-label="Toggle navigation menu"
+          class="grid h-9 w-9 place-items-center rounded-xl border border-ink/15 bg-white/70 text-ink backdrop-blur transition hover:bg-white md:hidden"
+        >
+          <i data-lucide="menu" class="h-5 w-5"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Nav Floating Overlay (floats over page content without pushing it down) -->
+    <div
+      id="mobile-nav"
+      class="hidden absolute top-full left-0 right-0 w-full border-b border-ink/10 bg-paper/95 px-5 py-5 backdrop-blur-md md:hidden shadow-2xl"
+    >
+      <nav class="flex flex-col space-y-2.5 font-medium text-base text-ink">
+        <a href="#tools" class="mobile-nav-link flex items-center justify-between rounded-lg px-2.5 py-2 transition hover:bg-ink/5">
+          <span>Tools</span>
+          <span class="text-xs font-mono text-ink-soft">10 utilities</span>
+        </a>
+        <a href="#how" class="mobile-nav-link flex items-center justify-between rounded-lg px-2.5 py-2 transition hover:bg-ink/5">
+          <span>How it works</span>
+          <span class="text-xs font-mono text-ink-soft">3 steps</span>
+        </a>
+        <a href="#vault" class="mobile-nav-link flex items-center justify-between rounded-lg px-2.5 py-2 transition hover:bg-ink/5">
+          <span>Cloud Vault</span>
+          <span class="text-xs font-mono text-ink-soft">Free storage</span>
+        </a>
+        <a href="#faq" class="mobile-nav-link flex items-center justify-between rounded-lg px-2.5 py-2 transition hover:bg-ink/5">
+          <span>FAQ</span>
+          <span class="text-xs font-mono text-ink-soft">Questions</span>
+        </a>
+        <div class="pt-3 border-t border-ink/10">
+          <a
+            data-app
+            href="https://omnifile.bankole.xyz"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center justify-center gap-2 rounded-xl bg-brand px-4 py-3 text-sm font-semibold text-white shadow-lg shadow-brand/20 transition hover:bg-brand-deep"
+          >
+            <span>Open OmniFile Studio</span>
+            <i data-lucide="arrow-up-right" class="h-4 w-4"></i>
+          </a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="relative overflow-hidden pt-8 pb-16 sm:pt-14 sm:pb-24 ">
+      <div aria-hidden="true" class="pointer-events-none absolute -top-24 left-1/2 -z-10 h-[500px] w-[800px] -translate-x-1/2 rounded-full bg-gradient-to-b from-brand/12 via-brand/5 to-transparent blur-3xl"></div>
+      
+      <div class="relative mx-auto flex max-w-5xl flex-col items-center px-5 text-center sm:px-8">
+        <div class="flex w-full flex-col items-center">
+          <h1 class="font-display text-4xl font-extrabold leading-[1.02] tracking-[-0.035em] sm:text-6xl lg:text-7xl">
+            Compress, convert and edit files in one place.
+          </h1>
+          <p class="mx-auto mt-6 max-w-2xl text-lg text-ink-soft sm:text-xl leading-relaxed">
+            Ten tools for images, PDFs, Word files, audio and archives. Use them as a guest: no install, no sign-up.
+          </p>
+          <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
+            <a data-app href="https://omnifile.bankole.xyz" target="_blank" rel="noopener noreferrer" class="inline-flex h-12 items-center rounded-xl bg-brand px-7 text-base font-semibold text-white shadow-lg shadow-brand/25 transition-colors hover:bg-brand-deep">Open OmniFile Studio</a>
+            <a href="#tools" class="inline-flex h-12 items-center rounded-xl border border-ink/15 bg-white/70 px-6 text-base font-semibold text-ink backdrop-blur transition-colors hover:bg-white hover:border-ink/25">Browse the tools</a>
+          </div>
+          <ul class="mx-auto mt-10 flex max-w-2xl flex-wrap items-center justify-center gap-2 font-mono text-xs font-medium" aria-label="Supported formats">
+            <li class="rounded-md bg-amber-100 px-2 py-1 text-amber-800">.png</li>
+            <li class="rounded-md bg-amber-100 px-2 py-1 text-amber-800">.jpg</li>
+            <li class="rounded-md bg-amber-100 px-2 py-1 text-amber-800">.heic</li>
+            <li class="rounded-md bg-amber-100 px-2 py-1 text-amber-800">.webp</li>
+            <li class="rounded-md bg-amber-100 px-2 py-1 text-amber-800">.avif</li>
+            <li class="rounded-md bg-amber-100 px-2 py-1 text-amber-800">.ico</li>
+            <li class="rounded-md bg-rose-100 px-2 py-1 text-rose-800">.pdf</li>
+            <li class="rounded-md bg-sky-100 px-2 py-1 text-sky-800">.docx</li>
+            <li class="rounded-md bg-sky-100 px-2 py-1 text-sky-800">.txt</li>
+            <li class="rounded-md bg-fuchsia-100 px-2 py-1 text-fuchsia-800">.mp3</li>
+            <li class="rounded-md bg-violet-100 px-2 py-1 text-violet-800">.zip</li>
+            <li class="rounded-md bg-emerald-100 px-2 py-1 text-emerald-800">.svg</li>
+          </ul>
+        </div>
+
+        <!-- Live demo placed cleanly below the hero texts -->
+        <div class="mt-12 w-full max-w-4xl text-left sm:mt-16">
+          <div id="demo" class="w-full overflow-hidden rounded-2xl bg-slate-950 text-slate-100 shadow-2xl shadow-ink/30 ring-1 ring-white/10">
+            <div class="flex items-center gap-2 sm:gap-3 border-b border-slate-800 px-3 py-2.5 sm:px-4 sm:py-3 bg-slate-900/50">
+              <span class="grid h-6 w-6 shrink-0 place-items-center rounded-md bg-indigo-600 text-white"><i data-lucide="boxes" class="h-3.5 w-3.5"></i></span>
+              <span class="font-display text-xs sm:text-[13px] font-semibold text-slate-200 truncate">OmniFile Studio</span>
+              <span id="demo-url" class="ml-auto min-w-0 max-w-[150px] sm:max-w-none truncate rounded-md bg-slate-900 px-2 py-1 sm:px-2.5 font-mono text-[10px] sm:text-[11px] text-slate-400">omnifile.bankole.xyz/?tool=image-studio</span>
+            </div>
+            <div class="grid sm:grid-cols-[195px_minmax(0,1fr)]">
+              <div id="demo-tabs" role="tablist" aria-label="Pick a tool to preview" class="flex gap-1 overflow-x-auto border-b border-slate-800 p-2 sm:flex-col sm:overflow-visible sm:border-b-0 sm:border-r sm:p-3"></div>
+              <div id="demo-panel" role="tabpanel" class="min-h-[26rem]"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tools -->
+    <section id="tools" class="scroll-mt-16 border-t border-ink/10 py-20 sm:py-28">
+      <div class="mx-auto grid max-w-7xl gap-12 px-5 sm:px-8 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-20">
+        <div class="lg:sticky lg:top-28 lg:self-start">
+          <h2 class="font-display text-3xl font-bold tracking-tight sm:text-5xl sm:leading-[1.05]">Everything you reach for when a file is the wrong size, type or shape.</h2>
+          <p class="mt-5 max-w-md text-ink-soft">Each tool opens straight from this list, grouped the same way the app groups them.</p>
+        </div>
+
+        <div class="space-y-10">
+          <div>
+            <h3 class="mb-2 font-display text-lg font-bold">Images</h3>
+            <ul class="divide-y divide-ink/10 border-y border-ink/10">
+              <li><a data-tool="image-studio" href="https://omnifile.bankole.xyz/?tool=image-studio" target="_blank" rel="noopener noreferrer" class="group flex items-center gap-4 py-4 transition-colors hover:bg-white/60 sm:px-2">
+                <span class="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-amber-100 text-amber-700"><i data-lucide="image" class="h-5 w-5"></i></span>
+                <span class="min-w-0"><span class="block font-semibold">Compress &amp; Convert Images</span><span class="block text-sm text-ink-soft">Shrink, convert and resize JPG, PNG, WebP, HEIC (iPhone) &amp; ICO.</span></span></a></li>
+              <li><a data-tool="bg-remover" href="https://omnifile.bankole.xyz/?tool=bg-remover" target="_blank" rel="noopener noreferrer" class="group flex items-center gap-4 py-4 transition-colors hover:bg-white/60 sm:px-2">
+                <span class="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-amber-100 text-amber-700"><i data-lucide="eraser" class="h-5 w-5"></i></span>
+                <span class="min-w-0"><span class="block font-semibold">Background Remover</span><span class="block text-sm text-ink-soft">Cut out subjects, or swap in a clean backdrop.</span></span></a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="mb-2 font-display text-lg font-bold">PDF &amp; Documents</h3>
+            <ul class="divide-y divide-ink/10 border-y border-ink/10">
+              <li><a data-tool="pdf-convert" href="https://omnifile.bankole.xyz/?tool=pdf-convert" target="_blank" rel="noopener noreferrer" class="group flex items-center gap-4 py-4 transition-colors hover:bg-white/60 sm:px-2">
+                <span class="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-rose-100 text-rose-700"><i data-lucide="file-text" class="h-5 w-5"></i></span>
+                <span class="min-w-0"><span class="block font-semibold">Image ↔ PDF</span><span class="block text-sm text-ink-soft">Turn photos into a PDF, or PDF pages into images.</span></span></a></li>
+              <li><a data-tool="pdf-compress" href="https://omnifile.bankole.xyz/?tool=pdf-compress" target="_blank" rel="noopener noreferrer" class="group flex items-center gap-4 py-4 transition-colors hover:bg-white/60 sm:px-2">
+                <span class="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-rose-100 text-rose-700"><i data-lucide="minimize-2" class="h-5 w-5"></i></span>
+                <span class="min-w-0"><span class="block font-semibold">Compress PDF</span><span class="block text-sm text-ink-soft">Reduce PDF size with three presets.</span></span></a></li>
+              <li><a data-tool="pdf-edit" href="https://omnifile.bankole.xyz/?tool=pdf-edit" target="_blank" rel="noopener noreferrer" class="group flex items-center gap-4 py-4 transition-colors hover:bg-white/60 sm:px-2">
+                <span class="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-rose-100 text-rose-700"><i data-lucide="wand-sparkles" class="h-5 w-5"></i></span>
+                <span class="min-w-0"><span class="block font-semibold">Edit, Split &amp; Protect PDF</span><span class="block text-sm text-ink-soft">Reorder pages, split ranges, merge files and add a password.</span></span></a></li>
+              <li><a data-tool="doc-studio" href="https://omnifile.bankole.xyz/?tool=doc-studio" target="_blank" rel="noopener noreferrer" class="group flex items-center gap-4 py-4 transition-colors hover:bg-white/60 sm:px-2">
+                <span class="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-sky-100 text-sky-700"><i data-lucide="file-spreadsheet" class="h-5 w-5"></i></span>
+                <span class="min-w-0"><span class="block font-semibold">DOCX ↔ PDF</span><span class="block text-sm text-ink-soft">Convert between Word and PDF.</span></span></a></li>
+              <li><a data-tool="ocr-studio" href="https://omnifile.bankole.xyz/?tool=ocr-studio" target="_blank" rel="noopener noreferrer" class="group flex items-center gap-4 py-4 transition-colors hover:bg-white/60 sm:px-2">
+                <span class="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-sky-100 text-sky-700"><i data-lucide="scan-text" class="h-5 w-5"></i></span>
+                <span class="min-w-0"><span class="block font-semibold">OCR Text Extractor</span><span class="block text-sm text-ink-soft">Pull text out of images and scanned PDFs.</span></span></a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="mb-2 font-display text-lg font-bold">Audio &amp; Video</h3>
+            <ul class="divide-y divide-ink/10 border-y border-ink/10">
+              <li><a data-tool="media-studio" href="https://omnifile.bankole.xyz/?tool=media-studio" target="_blank" rel="noopener noreferrer" class="group flex items-center gap-4 py-4 transition-colors hover:bg-white/60 sm:px-2">
+                <span class="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-fuchsia-100 text-fuchsia-700"><i data-lucide="music" class="h-5 w-5"></i></span>
+                <span class="min-w-0"><span class="block font-semibold">Video → Audio &amp; Compress</span><span class="block text-sm text-ink-soft">Extract audio, trim a clip or shrink a recording.</span></span></a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="mb-2 font-display text-lg font-bold">Utilities</h3>
+            <ul class="divide-y divide-ink/10 border-y border-ink/10">
+              <li><a data-tool="qr-studio" href="https://omnifile.bankole.xyz/?tool=qr-studio" target="_blank" rel="noopener noreferrer" class="group flex items-center gap-4 py-4 transition-colors hover:bg-white/60 sm:px-2">
+                <span class="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-emerald-100 text-emerald-700"><i data-lucide="qr-code" class="h-5 w-5"></i></span>
+                <span class="min-w-0"><span class="block font-semibold">QR Code Generator</span><span class="block text-sm text-ink-soft">Custom QR codes for links, Wi-Fi and contacts, as PNG or SVG.</span></span></a></li>
+              <li><a data-tool="zip-studio" href="https://omnifile.bankole.xyz/?tool=zip-studio" target="_blank" rel="noopener noreferrer" class="group flex items-center gap-4 py-4 transition-colors hover:bg-white/60 sm:px-2">
+                <span class="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-emerald-100 text-emerald-700"><i data-lucide="folder-archive" class="h-5 w-5"></i></span>
+                <span class="min-w-0"><span class="block font-semibold">ZIP Archiver &amp; Extractor</span><span class="block text-sm text-ink-soft">Bundle files into a ZIP, or open one and take items out.</span></span></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How it works -->
+    <section id="how" class="scroll-mt-16 bg-ink py-20 text-white sm:py-28">
+      <div class="mx-auto max-w-7xl px-5 sm:px-8">
+        <h2 class="max-w-2xl font-display text-3xl font-bold tracking-tight sm:text-5xl sm:leading-[1.05]">Three steps, and the middle one is just dropping a file.</h2>
+        <ol class="mt-14 grid gap-10 md:grid-cols-3 md:gap-8">
+          <li class="relative">
+            <span class="font-display text-6xl font-extrabold leading-none text-brand">1</span>
+            <h3 class="mt-4 font-display text-xl font-bold">Pick a tool</h3>
+            <p class="mt-2 max-w-sm text-slate-300">Browse the sidebar, or press <kbd class="rounded border border-white/25 px-1.5 font-mono text-sm">/</kbd> and type what you want to do. On a phone, the tool switcher sits right under the header.</p>
+          </li>
+          <li class="relative">
+            <span class="font-display text-6xl font-extrabold leading-none text-brand">2</span>
+            <h3 class="mt-4 font-display text-xl font-bold">Drop your file</h3>
+            <p class="mt-2 max-w-sm text-slate-300">Drag it in or tap to browse. Adding several? Drag them into the order you want before you run the tool.</p>
+          </li>
+          <li class="relative">
+            <span class="font-display text-6xl font-extrabold leading-none text-brand">3</span>
+            <h3 class="mt-4 font-display text-xl font-bold">Download, or keep it</h3>
+            <p class="mt-2 max-w-sm text-slate-300">Download the result straight away. If you have an account, save it to your vault instead.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Vault -->
+    <section id="vault" class="scroll-mt-16 overflow-hidden py-20 sm:py-28">
+      <div class="mx-auto grid max-w-7xl items-center gap-12 px-5 sm:px-8 lg:grid-cols-2 lg:gap-20">
+        <div class="min-w-0">
+          <h2 class="font-display text-3xl font-bold tracking-tight sm:text-5xl sm:leading-[1.05]">An optional vault for the files you want to keep.</h2>
+          <p class="mt-5 max-w-lg text-ink-soft">You never need an account. If you make one, every result gets a Save to Vault button next to Download.</p>
+          <ul class="mt-8 space-y-5">
+            <li class="flex gap-4"><span class="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-brand-tint text-brand"><i data-lucide="cloud" class="h-5 w-5"></i></span>
+              <p><strong class="font-semibold">100 MB, free.</strong> <span class="text-ink-soft">Created the moment you sign up.</span></p></li>
+            <li class="flex gap-4"><span class="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-brand-tint text-brand"><i data-lucide="timer" class="h-5 w-5"></i></span>
+              <p><strong class="font-semibold">Files expire after 7 days.</strong> <span class="text-ink-soft">So the vault never fills up with things you forgot.</span></p></li>
+            <li class="flex gap-4"><span class="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-brand-tint text-brand"><i data-lucide="history" class="h-5 w-5"></i></span>
+              <p><strong class="font-semibold">Recent files stay in your browser.</strong> <span class="text-ink-soft">Guests get a local list of what they just processed.</span></p></li>
+          </ul>
+        </div>
+
+        <div class="w-full min-w-0 max-w-full rounded-[1.75rem] bg-brand-tint p-2.5 sm:p-6">
+          <div class="w-full overflow-hidden rounded-2xl bg-slate-950 text-slate-100 shadow-xl shadow-ink/20 ring-1 ring-white/10">
+            <div class="flex items-center justify-between border-b border-slate-800 px-4 py-3.5 sm:px-5 sm:py-4">
+              <div class="flex min-w-0 items-center gap-2 font-display text-sm sm:text-[15px] font-semibold"><i data-lucide="cloud" class="h-4 w-4 shrink-0 text-indigo-300"></i><span class="truncate">Cloud vault</span></div>
+              <span class="shrink-0 text-xs text-slate-400">42.8 / 100 MB</span>
+            </div>
+            <div class="px-4 pt-3.5 sm:px-5 sm:pt-4"><div class="h-1.5 overflow-hidden rounded-full bg-slate-800"><div class="h-full w-[43%] rounded-full bg-indigo-400"></div></div></div>
+            <ul class="space-y-2 p-3 sm:p-5">
+              <li class="flex items-center gap-2.5 sm:gap-3 rounded-xl border border-slate-800 bg-slate-800/40 p-2.5 sm:p-3">
+                <span class="grid h-9 w-9 sm:h-10 sm:w-10 shrink-0 place-items-center rounded-lg bg-rose-400/15 font-mono text-[11px] text-rose-300">.pdf</span>
+                <div class="min-w-0 flex-1"><p class="truncate font-mono text-xs sm:text-[13px]">board-deck-scan-compressed.pdf</p><p class="text-xs text-slate-400">2.1 MB</p></div>
+                <span class="shrink-0 text-[11px] sm:text-xs text-slate-400">6 days left</span></li>
+              <li class="flex items-center gap-2.5 sm:gap-3 rounded-xl border border-slate-800 bg-slate-800/40 p-2.5 sm:p-3">
+                <span class="grid h-9 w-9 sm:h-10 sm:w-10 shrink-0 place-items-center rounded-lg bg-amber-400/15 font-mono text-[11px] text-amber-300">.webp</span>
+                <div class="min-w-0 flex-1"><p class="truncate font-mono text-xs sm:text-[13px]">launch-banner.webp</p><p class="text-xs text-slate-400">380 KB</p></div>
+                <span class="shrink-0 text-[11px] sm:text-xs text-slate-400">4 days left</span></li>
+              <li class="flex items-center gap-2.5 sm:gap-3 rounded-xl border border-slate-800 bg-slate-800/40 p-2.5 sm:p-3">
+                <span class="grid h-9 w-9 sm:h-10 sm:w-10 shrink-0 place-items-center rounded-lg bg-violet-400/15 font-mono text-[11px] text-violet-300">.zip</span>
+                <div class="min-w-0 flex-1"><p class="truncate font-mono text-xs sm:text-[13px]">invoices-october.zip</p><p class="text-xs text-slate-400">14.6 MB</p></div>
+                <span class="shrink-0 text-[11px] sm:text-xs text-slate-400">1 day left</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Details -->
+    <section class="border-t border-ink/10 py-20 sm:py-28">
+      <div class="mx-auto max-w-7xl px-5 sm:px-8">
+        <h2 class="max-w-2xl font-display text-3xl font-bold tracking-tight sm:text-5xl sm:leading-[1.05]">The small things that save you a trip to another site.</h2>
+        <dl class="mt-14 grid gap-x-14 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
+          <div class="flex gap-4"><i data-lucide="layers" class="mt-1 h-5 w-5 shrink-0 text-brand"></i>
+            <div><dt class="font-semibold">Reorder before you merge</dt><dd class="mt-1 text-ink-soft">Drag files and PDF pages into place, rotate them, then merge or split by range.</dd></div></div>
+          <div class="flex gap-4"><i data-lucide="minimize-2" class="mt-1 h-5 w-5 shrink-0 text-brand"></i>
+            <div><dt class="font-semibold">Three PDF compression presets</dt><dd class="mt-1 text-ink-soft">Choose how hard to squeeze instead of guessing at quality sliders.</dd></div></div>
+          <div class="flex gap-4"><i data-lucide="lock" class="mt-1 h-5 w-5 shrink-0 text-brand"></i>
+            <div><dt class="font-semibold">Password-protect or unlock PDFs</dt><dd class="mt-1 text-ink-soft">Add or remove encryption, and stamp a watermark while you are there.</dd></div></div>
+          <div class="flex gap-4"><i data-lucide="scan-text" class="mt-1 h-5 w-5 shrink-0 text-brand"></i>
+            <div><dt class="font-semibold">Edit OCR text before you export</dt><dd class="mt-1 text-ink-soft">Fix a misread word in place, then copy it or download TXT or Word.</dd></div></div>
+          <div class="flex gap-4"><i data-lucide="qr-code" class="mt-1 h-5 w-5 shrink-0 text-brand"></i>
+            <div><dt class="font-semibold">QR codes as PNG or SVG</dt><dd class="mt-1 text-ink-soft">Set the colors and resolution, then download one that prints sharp.</dd></div></div>
+          <div class="flex gap-4"><i data-lucide="smartphone" class="mt-1 h-5 w-5 shrink-0 text-brand"></i>
+            <div><dt class="font-semibold">Built for phones, too</dt><dd class="mt-1 text-ink-soft">A tool switcher, full-width buttons and a light or dark theme on any screen.</dd></div></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="scroll-mt-16 border-t border-ink/10 py-20 sm:py-28">
+      <div class="mx-auto grid max-w-7xl gap-12 px-5 sm:px-8 lg:grid-cols-[minmax(0,4fr)_minmax(0,8fr)] lg:gap-20">
+        <h2 class="font-display text-3xl font-bold tracking-tight sm:text-5xl sm:leading-[1.05]">Questions people ask first</h2>
+        <div class="divide-y divide-ink/10 border-y border-ink/10">
+          <details class="group py-5">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-semibold [&::-webkit-details-marker]:hidden">Do I need an account?<i data-lucide="chevron-down" class="h-5 w-5 shrink-0 transition-transform group-open:rotate-180"></i></summary>
+            <p class="mt-3 max-w-2xl text-ink-soft">No. Every tool works as a guest. An account only adds the cloud vault, where you can save results for up to 7 days.</p>
+          </details>
+          <details class="group py-5">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-semibold [&::-webkit-details-marker]:hidden">Which formats can I use?<i data-lucide="chevron-down" class="h-5 w-5 shrink-0 transition-transform group-open:rotate-180"></i></summary>
+            <p class="mt-3 max-w-2xl text-ink-soft">Images (JPG, PNG, WebP, HEIC/iPhone photos, AVIF, TIFF, ICO), PDFs, Word documents (DOCX), video and audio files, ZIP archives, and text from scanned images. The QR generator exports PNG or SVG.</p>
+          </details>
+          <details class="group py-5">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-semibold [&::-webkit-details-marker]:hidden">How long does the vault keep my files?<i data-lucide="chevron-down" class="h-5 w-5 shrink-0 transition-transform group-open:rotate-180"></i></summary>
+            <p class="mt-3 max-w-2xl text-ink-soft">Seven days. Files expire automatically, and the vault holds up to 100 MB at a time.</p>
+          </details>
+          <details class="group py-5">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-semibold [&::-webkit-details-marker]:hidden">What happens to files if I do not sign in?<i data-lucide="chevron-down" class="h-5 w-5 shrink-0 transition-transform group-open:rotate-180"></i></summary>
+            <p class="mt-3 max-w-2xl text-ink-soft">Nothing is saved to a cloud vault. Recent files are listed locally in your browser, so you can find what you just processed.</p>
+          </details>
+          <details class="group py-5">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-semibold [&::-webkit-details-marker]:hidden">Does it work on my phone?<i data-lucide="chevron-down" class="h-5 w-5 shrink-0 transition-transform group-open:rotate-180"></i></summary>
+            <p class="mt-3 max-w-2xl text-ink-soft">Yes. The layout adapts to small screens, with a tool switcher under the header and large buttons for downloads.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="overflow-hidden px-5 pb-20 sm:px-8 sm:pb-28">
+      <div class="mx-auto max-w-7xl rounded-[2rem] bg-brand px-5 py-12 text-white sm:px-14 sm:py-20">
+        <h2 class="max-w-2xl font-display text-3xl font-extrabold leading-[1.02] tracking-tight sm:text-6xl">Drop in your first file.</h2>
+        <p class="mt-4 max-w-lg text-lg text-indigo-100">Ten tools, one tab, nothing to install.</p>
+        <a data-app href="https://omnifile.bankole.xyz" target="_blank" rel="noopener noreferrer" class="mt-8 inline-flex h-12 items-center rounded-xl bg-white px-6 text-base font-semibold text-brand-deep transition-colors hover:bg-brand-tint">Open OmniFile Studio</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-ink/10 py-10">
+    <div class="mx-auto flex max-w-7xl flex-col items-start justify-between gap-6 px-5 sm:flex-row sm:items-center sm:px-8">
+      <a href="#top" class="flex items-center gap-2.5 font-display font-bold tracking-tight">
+        <span class="grid h-8 w-8 place-items-center rounded-lg bg-brand text-white"><i data-lucide="boxes" class="h-4 w-4"></i></span>OmniFile Studio</a>
+      <nav aria-label="Footer" class="flex flex-wrap gap-x-7 gap-y-2 text-sm text-ink-soft">
+        <a href="#tools" class="hover:text-ink">Tools</a><a href="#how" class="hover:text-ink">How it works</a><a href="#vault" class="hover:text-ink">Vault</a><a href="#faq" class="hover:text-ink">FAQ</a>
+      </nav>
+      <p class="text-sm text-ink-soft">© <span id="year">2026</span> OmniFile Studio</p>
+    </div>
+  </footer>
+</body>
+</html>
