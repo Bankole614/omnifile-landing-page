@@ -158,10 +158,8 @@ function renderTabs() {
   icons();
 }
 
-function renderPanel(s) {
-  urlEl.textContent = `omnifile.bankole.xyz/?tool=${s.id}`;
-  panelEl.setAttribute('aria-labelledby', `tab-${s.id}`);
-  panelEl.innerHTML = `
+function panelHtml(s) {
+  return `
     <div class="flex items-center gap-3 border-b border-slate-800 px-5 py-4">
       <div class="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-indigo-500/15 text-indigo-300 ring-1 ring-inset ring-indigo-400/30">
         <i data-lucide="${s.icon}" class="h-5 w-5"></i></div>
@@ -212,6 +210,33 @@ function renderPanel(s) {
         </div>
       </div>
     </div>`;
+}
+
+/* Measure every scenario in its tallest (result shown) state and lock the
+   panel to that height, so the page below never jumps while the demo loops. */
+function lockPanelHeight() {
+  const width = panelEl.clientWidth;
+  if (!width) return;
+  const ghost = document.createElement('div');
+  ghost.setAttribute('aria-hidden', 'true');
+  ghost.style.cssText = `position:absolute;left:-9999px;top:0;visibility:hidden;pointer-events:none;width:${width}px`;
+  document.body.appendChild(ghost);
+  let tallest = 0;
+  SCENARIOS.forEach((s) => {
+    ghost.innerHTML = panelHtml(s);
+    const res = ghost.querySelector('[aria-live]');
+    res.classList.remove('hidden', 'opacity-0');
+    icons();
+    tallest = Math.max(tallest, ghost.offsetHeight);
+  });
+  ghost.remove();
+  panelEl.style.minHeight = `${Math.ceil(tallest)}px`;
+}
+
+function renderPanel(s) {
+  urlEl.textContent = `omnifile.bankole.xyz/?tool=${s.id}`;
+  panelEl.setAttribute('aria-labelledby', `tab-${s.id}`);
+  panelEl.innerHTML = panelHtml(s);
   icons();
   document.getElementById('demo-run').addEventListener('click', () => {
     autoplay = false;
@@ -224,6 +249,7 @@ function play(i) {
   current = i;
   const s = SCENARIOS[i];
   renderTabs();
+  if (!panelEl.style.minHeight) lockPanelHeight();
   renderPanel(s);
 
   const run = document.getElementById('demo-run');
@@ -267,6 +293,15 @@ tabsEl.addEventListener('click', (e) => {
   autoplay = false;
   play(Number(btn.dataset.i));
 });
+
+// Keep the locked height correct after fonts load and on resize/rotate
+let lockRaf = 0;
+const relock = () => {
+  cancelAnimationFrame(lockRaf);
+  lockRaf = requestAnimationFrame(lockPanelHeight);
+};
+window.addEventListener('resize', relock);
+if (document.fonts && document.fonts.ready) document.fonts.ready.then(relock);
 
 // Only start the loop when the demo is on screen
 const demoRoot = document.getElementById('demo');
